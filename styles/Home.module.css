@@ -1,0 +1,487 @@
+/* vietnamese */
+
+@font-face {
+  font-family: 'Work Sans';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/worksans/v11/QGY9z_wNahGAdqQ43Rh_ebrnlwyYfEPxPoGUgGs5q4fYGyA.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+}
+
+/* latin-ext */
+
+@font-face {
+  font-family: 'Work Sans';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/worksans/v11/QGY9z_wNahGAdqQ43Rh_ebrnlwyYfEPxPoGUgGs5qofYGyA.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+
+@font-face {
+  font-family: 'Work Sans';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/worksans/v11/QGY9z_wNahGAdqQ43Rh_ebrnlwyYfEPxPoGUgGs5pIfY.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* vietnamese */
+
+@font-face {
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/worksans/v11/QGY_z_wNahGAdqQ43RhVcIgYT2Xz5u32KxfXBiAJpp_c.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+}
+
+/* latin-ext */
+
+@font-face {
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/worksans/v11/QGY_z_wNahGAdqQ43RhVcIgYT2Xz5u32KxfXBiEJpp_c.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+
+@font-face {
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/worksans/v11/QGY_z_wNahGAdqQ43RhVcIgYT2Xz5u32KxfXBi8Jpg.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+.title{
+  margin-top: 10px;
+}
+
+.container{
+  width: 100%;
+}
+
+.cont{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  
+}
+
+
+.header{
+  background-color: rgb(24,44,60);
+  background-size: 1000%;
+  background-position-y:center;
+  background-position-x:-120cm;
+  margin: 100px;
+  align-items: center;
+  padding: 0.5vw;
+  margin: 0;
+  text-align: center;
+  box-shadow: 0px 0px 5px rgb(25,25,25);
+
+}
+
+.imgCont{
+  padding: 5px;
+}
+
+.loginForm{
+  width:50vw;
+  height: auto;
+
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-top:15vh;
+  margin-bottom:15vh;
+  border-radius: 7px;
+  
+} 
+
+.btnLogin {
+
+  background:none;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  transform: translate(0,36vh);
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+  
+}
+
+.inputLogin{
+  margin-top: 50px;
+  width: 80%;
+  border: none;
+  border-bottom: 1px solid black;
+  font-size: 24px;
+  outline: none;
+  background-color: rgb(255,255,255);
+  transition: 0.1s ease-in-out;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 3px;
+}
+
+.inputLogin:focus{
+  border-bottom: 1px solid black;
+  background-color: rgb(222,222,222);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  
+}
+.inputLogin::placeholder{
+  transition: 0.3s ease-in-out;
+}
+
+.inputLogin:hover::placeholder {
+  transform: translate(5px, 0);
+}
+
+.inputLogin:focus::placeholder {
+  transform: translate(-500px, 0);
+}
+
+.btnLog{
+  margin-top: 50px;
+  border-radius: 5px;
+  background-color: rgb(24,44,60);
+  outline: none;
+  border: none;
+  padding: 10px;
+  font-size: 18px;
+  color: white;
+  font-family: Work Sans;
+  transition: 0.2s;
+}
+
+.btnLog:hover{
+  transform: scale(1.05,1.05);
+  
+}
+
+.linkB{
+  text-decoration: none;
+  color: black;
+  font-size: 15px;
+  padding: 0px;
+}
+
+.buscarForm{
+  margin-top:20px;
+  margin-bottom:20px;
+  padding: 5px;
+  height: 28px;
+  background-color: var(--imput-buscar);
+  width: 95vw;
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+  transition: 0.2s ease-in-out;
+}
+
+.barraBusqueda{
+  border: none;
+  outline: none;
+  width: 95%;
+  font-size: 22px;
+  background-color: var(--imput-buscar);
+  height: 28px;
+  font-family: Work Sans;
+}
+
+.barraBusqueda::placeholder{
+  padding-left: 5px;
+  font-family: Work Sans;
+  transition: 0.3s ease-in-out;
+}
+
+.barraBusqueda:hover::placeholder{
+  transform: translate(10px,0px);
+}
+
+.barraBusqueda:focus::placeholder {
+  transform: translate(-500px, 0);
+}
+
+.btnBuscar{
+  height: 28px;
+  padding-left: 5px;
+  font-size: 20px;
+  background-color: rgb(220,220,220);
+  
+  border: none;
+  border-left: 1px solid white;
+}
+
+.hr{
+  width: 97%;
+  
+}
+
+.addCliente{
+  background-color: green;
+  margin-bottom: 20px;
+  border: none;
+  color: white;
+  font-family: Work Sans;
+  font-size: 15px;
+  width: max-content;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 3px rgb(180,180,180);
+  transition: 0.3s ease-in-out;
+  margin-left: 5vw;
+}
+
+.btnCerrar{
+  border: none;
+  font-family: Work Sans;
+  font-size: 15px;
+  width: max-content;
+  padding: 5px;
+  background-color: red;
+  color: white;
+  box-shadow: 2px 2px 3px rgb(180,180,180);
+  border-radius: 5px;
+  margin-left: 1vw;
+}
+
+.btnHistorial{
+  border: none;
+  font-family: Work Sans;
+  font-size: 15px;
+  width: max-content;
+  padding: 5px;
+  color: white;
+  box-shadow: 2px 2px 3px rgb(180,180,180);
+  border-radius: 5px;
+  margin-left: 1vw;
+  background-color: var(--occend);
+}
+
+
+.tablaCont{
+  width: 90%;
+  padding:15px;
+  padding-top: 0px;
+  background-color: var(--imput-buscar);
+  border-radius: 10px;
+  height: 55vh;
+  word-wrap: break-word;
+  font-size: 18px;
+  overflow-y: auto;
+  padding-top: 25px;
+
+}
+
+.tablaCont::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+.tablaCont::-webkit-scrollbar:vertical {
+  width:10px;
+}
+
+.tablaCont::-webkit-scrollbar-button:increment,.productoRelacionadoC::-webkit-scrollbar-button {
+  display: none;
+} 
+
+.tablaCont::-webkit-scrollbar-thumb {
+  background-color: #808080;
+  border-radius: 20px;
+  border: 2px solid rgb(223, 223, 223);
+}
+
+.tablaCont::-webkit-scrollbar-track {
+  border-radius: 10px;  
+}
+
+
+
+.clienteC{
+  
+  border-radius: 5px;
+
+  word-wrap: break-word;
+  align-items: center;
+  margin-top: 5px;
+  
+}
+
+.headTabla{
+  margin-top: 5px;
+  transform: translate(-5px, -30px);
+  background-color: var(--imput-buscar);
+  border-radius: 5px;
+  font-size: 16px;
+  width: 90%;
+  position: absolute;
+}
+
+.datoCliente{
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 2px 2px 3px rgb(200,200,200);
+  word-wrap: break-word;
+  padding: 6px;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  
+}
+
+.datoCliente:hover{
+  background-color: var(--imput-buscar);
+  box-shadow: 2px 2px 3px rgb(200,200,200);
+}
+
+.clienteAgregar{
+  width: 75%;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  padding: 10px;
+  display: inline-flexbox;
+  background-color: var(--imput-buscar);
+  border-radius: 10px;
+  
+}
+
+.input{
+  width: 20%;
+  font-family: Work Sans;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  padding: 5px;
+  border-radius: 5px;
+  margin: 5px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.input::placeholder{
+  color:rgb(0, 0, 0);
+  transition: 0.3s ease-in-out;
+}
+.input:focus::placeholder{
+  transform: translate(-250px,0px);
+}
+
+.guardar{
+  background-color: green;
+  padding: 5px;
+  font-size: 16px;
+  font-family: Work Sans;
+  border: none;
+  border-radius: 5px;
+  margin: 5px;
+  margin-top: 0px;
+  transition: 0.3s ease-in-out;
+  width: 50vw;
+  color: white;
+}
+
+.guardar:hover{
+  transform: scale(1.01, 1.05);
+}
+
+.redBtn{
+  background-color: red;
+  padding: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-size: 16px;
+  font-family: Work Sans;
+  border: none;
+  border-radius: 5px;
+  margin: 5px;
+  margin-top: 0px;
+  transition: 0.3s ease-in-out;
+  width: max-content;
+
+  color: white;
+}
+
+.redBtn:hover{
+  transform: scale(1.03, 1.05);
+}
+
+.links{
+  color: unset;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 800px) {
+  .loginForm{
+    width: 75vw;
+    margin-top: 15vh;
+
+  }
+  .header{
+    background-position-x:0cm;
+  }
+  .barraBusqueda{
+    width: 90%;
+    font-size: 12px;
+    height:16px;
+  }
+  .btnBuscar{
+    font-size: 10px;
+    height:16px;
+  }
+  .buscarForm{
+    width: 90vw;
+    height:16px;
+  }
+  .tablaCont{
+    width: 80vw;
+    font-size: 12px;
+    padding-top: 25px;
+  }
+  .datoCliente{
+    padding: 5px;
+    margin-right: 1px;
+    word-wrap: normal;
+    
+  }
+  .headTabla{
+    
+    transform: translate(-5px, -30px);
+    font-size: 12px;
+    width: 83%;
+    
+  }
+  .clienteAgregar{
+    width: 85%;
+    font-size: 12px;
+    margin-top: 50px;    
+  }
+  .input{
+    font-size: 12px;
+    margin:5px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+  }
+  .addCliente, .btnCerrar, .btnHistorial{
+    font-size: 10px;
+  }
+  .guardar{
+    width: 30%;
+      
+  }
+}
