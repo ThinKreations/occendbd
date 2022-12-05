@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Header from '../components/Header'
-
+import { useForm } from 'react-hook-form'
 
 import Link from 'next/link'
 import { useRouter } from 'next/router'
