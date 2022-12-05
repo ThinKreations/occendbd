@@ -22,7 +22,7 @@ export default function Home() {
   })
 
   const onSubmit = async data => {
-    
+    console.log('?')
     const res = await fetch(`https://localhost:8080/login/`, {
       method: 'POST',
       mode: 'cors',
@@ -70,7 +70,7 @@ export default function Home() {
             <Header/>
           <center>
 
-          <form className={styles.loginForm} onSubmit={onSubmit}>
+          <form className={styles.loginForm} onSubmit={}>
                 
                 <font face="Work Sans">
                 
