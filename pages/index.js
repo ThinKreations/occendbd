@@ -33,7 +33,7 @@ export default function Home() {
                 <input className={styles.inputLogin} type={'email'} placeholder="Correo"></input><br/>
                 <input className={styles.inputLogin} type="password" placeholder="Contraseña"></input><br/>
                 <center>
-                  <button className={styles.btnLog} onClick={()=>router.push('./cliente/list')}>Acceder</button>
+                  <button className={styles.btnLog} onClick={()=>router.push('./cliente/')}>Acceder</button>
                   
                   
                 </center>

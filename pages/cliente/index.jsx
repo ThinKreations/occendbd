@@ -24,8 +24,8 @@ export default function List(){
             </form>
             </center>
             
-                <button className={styles.addCliente} onClick={()=>router.push('agregar')}>Agregar Cliente</button>
-                <button className={styles.btnHistorial} onClick={()=>router.push('/')}>Historial</button>
+                <button className={styles.addCliente} onClick={()=>router.push('./cliente/agregar')}>Agregar Cliente</button>
+                <button className={styles.btnHistorial} onClick={()=>router.push('./cliente/historial')}>Historial</button>
                 <button className={styles.btnCerrar} onClick={()=>router.push('/')}>Cerrar Sesión</button>
                 
             <div className={styles.cont}>
