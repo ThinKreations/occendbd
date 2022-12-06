@@ -3,12 +3,27 @@ import Image from 'next/image'
 import styles from '../../styles/Home.module.css'
 import Header from '../../components/Header'
 import MainHead from '../../components/MainHead'
-import { useRouter } from 'next/router'
+import Router from 'next/router'
 import Link from 'next/link'
+import {validarToken} from '../api/request'
+
 export default function List(){
 
-        const router = useRouter()
+const sessionControl = async () => {
+    const valid = await validarToken();
+    if (valid === false) {
+        swal({
+        title: 'Inicia sesion.',
+        text: 'Tu sesion expiro, vuelve a iniciar sesion para realizar esta operacion.',
+        icon: 'info',
+        button: 'Ok',
+        timer: '3000'
+        });
+        Router.push('/session/IniciarSesion');
+    }
+    }
 
+    
     return(
         <>
         <MainHead tituloPestana="Menú Principal"/>
@@ -24,9 +39,9 @@ export default function List(){
             </form>
             </center>
             
-                <button className={styles.addCliente} onClick={()=>router.push('./cliente/agregar')}>Agregar Cliente</button>
-                <button className={styles.btnHistorial} onClick={()=>router.push('./cliente/historial')}>Historial</button>
-                <button className={styles.btnCerrar} onClick={()=>router.push('/')}>Cerrar Sesión</button>
+                <button className={styles.addCliente} onClick={()=>Router.push('./cliente/agregar')}>Agregar Cliente</button>
+                <button className={styles.btnHistorial} onClick={()=>Router.push('./cliente/historial')}>Historial</button>
+                <button className={styles.btnCerrar} onClick={()=>Router.push('/')}>Cerrar Sesión</button>
                 
             <div className={styles.cont}>
                 

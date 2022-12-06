@@ -426,6 +426,10 @@
   text-decoration: none;
 }
 
+.errors{
+  color:red;
+}
+
 @media screen and (max-width: 800px) {
   .loginForm{
     width: 75vw;
