@@ -43,7 +43,7 @@ export default function AddCliente(){
                         <input className={styles.input} placeholder="Cel."></input>
                     </div>
                     <button className={styles.guardar}>Guardar</button>
-                    <Link href="list"><button className={styles.redBtn}>Cancelar</button></Link>
+                    <Link href="/cliente/"><button className={styles.redBtn}>Cancelar</button></Link>
                 </form>
 
                 </div>
