@@ -12,6 +12,23 @@ import { getUsuario } from '../api/user-https';
 
 export default function List(){
 
+    const sessionControl = async () => {
+        const valid = await validarToken()
+        if (valid == false) {
+          swal({
+            title: 'Inicia sesion.',
+            text:
+              'Tu sesion expiro, vuelve a iniciar sesion para realizar esta operacion.',
+            icon: 'info',
+            button: 'Ok',
+            timer: '3000'
+          })
+          
+          Router.push('/')
+        }
+      }
+    
+
     return(
         <>
         <MainHead tituloPestana="Menú Principal"/>
