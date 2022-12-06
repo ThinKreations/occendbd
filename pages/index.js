@@ -68,7 +68,7 @@ export default function IniciarSesion () {
             <center>
 
               <form onSubmit={handleSubmit(onSubmit)} className={styles.loginForm}>
-
+                <h1>Iniciar Sesión</h1>
                 <input {...register('correo')} className={styles.inputLogin} placeholder="Correo"/>
                 <p className={styles.errors}>{errors.correo?.message}</p>
 
