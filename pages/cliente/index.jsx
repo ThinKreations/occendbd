@@ -120,7 +120,7 @@ export default function Index({user, clientes, etiquetas, coincidencia=''}){
                             
                             {clientesR.clientes.map(c=>{
                                 return(
-                                    <Link href='/cliente/cliente' className={styles.links}>
+                                    
                                     <div className={styles.datoCliente} key={c._id}>
                                     {c.nombres}
                                     {c.paterno}
@@ -130,7 +130,7 @@ export default function Index({user, clientes, etiquetas, coincidencia=''}){
                                     {c.email}<b>, </b>
                                     {c.telefono}
                                     </div>
-                                    </Link>
+                                    
                                 )
                             })
                             }
