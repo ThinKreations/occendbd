@@ -4,9 +4,58 @@ import styles from '../../styles/Home.module.css'
 import Header from '../../components/Header'
 import MainHead from '../../components/MainHead'
 import Link from 'next/link'
+import React, { useEffect, useState } from 'react'
+import Swal from 'sweetalert2'
+import { agregarCliente } from '../api/clientes-https'
+import {validarToken} from '../api/request'
 
 export default function AddCliente(){
     
+    const sessionControl = async () => {
+        const valid = await validarToken()
+        if (valid === false) {
+          swal({
+            title: 'Inicia sesion.',
+            text:
+              'Debes iniciar sesión para acceder.',
+            icon: 'info',
+            button: 'Ok',
+            timer: '3000'
+          })
+          Router.push('/')
+        }
+      }
+
+    /**/
+    const agregarCli = async () => {
+        const id = localStorage.getItem('id')
+    let object = new Object({
+        etiquetas,
+        nombres: nombre,
+        paterno: pat,
+        materno: mat,
+        razonSocial: rS,
+        direccion: direc,
+        ciudad: city,
+        cp: pc,
+        rfc: rfc,
+        email: correo,
+        telefono: tel,
+        movil: cel,
+        usuario_creo: id
+    })
+    const { resJSON, res } = await agregarCliente(object)
+        if (res.status === 200) {
+          Router.back()
+        }
+      }
+
+
+    useEffect(() => {
+        sessionControl()
+        
+      }, [])
+
     return(
     
     <>

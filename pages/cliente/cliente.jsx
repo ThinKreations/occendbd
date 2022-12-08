@@ -44,7 +44,7 @@ export default function Cliente(){
                         <input className={styles.input} placeholder="Teléfono"></input>
                         <input className={styles.input} placeholder="Cel."></input>
                     </div>
-                    <Link href="list"><button className={styles.redBtn}>Cancelar</button></Link>
+                    <Link href="/cliente"><button className={styles.redBtn}>Cancelar</button></Link>
                     <button className={styles.guardar}>Editar</button>
                     <button className={styles.redBtn}>Eliminar</button>
                     
