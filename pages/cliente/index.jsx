@@ -37,10 +37,19 @@ export default function Index({user, clientes, etiquetas, coincidencia=''}){
      
     
       const cerrarSesion = async () => {
+
+        swal({
+            title: 'Sesión Cerrada.',
+            text:
+              'Sesión: '+localStorage.getItem('correo'),
+            icon: 'info',
+            button: 'Ok',
+            timer: '3000'
+          })
+
         localStorage.removeItem('token')
         localStorage.removeItem('id')
         localStorage.removeItem('correo')
-        localStorage.removeItem('pass')
         Router.push('/')
       }
     
