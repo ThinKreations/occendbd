@@ -56,7 +56,7 @@ export default function Index({user, clientes, etiquetas, coincidencia=''}){
       const buscarCoincidencias = async () => {
         if (termino === undefined || termino === '' || termino === ' ') {
           const res = await fetch(
-            `http//localhost:8080/cliente`
+            `http://localhost:8080/cliente`
           )
           const clientes = await res.json()
           setClientesR(clientes)
@@ -81,7 +81,7 @@ export default function Index({user, clientes, etiquetas, coincidencia=''}){
     
       useEffect(() => {
         sessionControl()
-        
+        buscarCoincidencias()
         
       }, [])
 
@@ -118,21 +118,24 @@ export default function Index({user, clientes, etiquetas, coincidencia=''}){
                     
                     <div className={styles.clienteC}>                
                             
-                            {clientesR.clientes.map(c=>{
-                                return(
-                                    
-                                    <div className={styles.datoCliente} key={c._id}>
-                                    {c.nombres}
-                                    {c.paterno}
-                                    {c.materno}<b>, </b> 
-                                    {c.razonSocial}<b>, </b>
-                                    
-                                    {c.email}<b>, </b>
-                                    {c.telefono}
-                                    </div>
-                                    
-                                )
-                            })
+                        {clientesR.clientes.map(c=>{
+                            
+                              return(
+                                
+                                <div className={styles.datoCliente} key={c._id}>
+                                {c.nombres}
+                                {c.paterno}
+                                {c.materno}<b>, </b> 
+                                {c.razonSocial}<b>, </b>
+                                
+                                {c.email}<b>, </b>
+                                {c.telefono}
+                                </div>
+                                
+                              )
+                            
+                                
+                          })
                             }
                             
                             

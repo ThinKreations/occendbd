@@ -1,6 +1,6 @@
-export const agregarCliente = async (cliente) => {
+export const agregarClienteReq = async (cliente) => {
     const token = localStorage.getItem("token");
-    const res = await fetch(`http://localhost:8080/cliente`, {
+    const res = await fetch(`http://localhost:8080/cliente/`, {
         method: 'POST',
         mode: 'cors',
         headers: {
