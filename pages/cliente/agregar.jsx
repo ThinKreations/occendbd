@@ -109,7 +109,8 @@ export default function AddCliente(){
             
             
           }
-          Router.push('/cliente/agregar')
+
+          Router.push('/cliente/cliente')
         }
       }
       
