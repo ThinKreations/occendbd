@@ -60,6 +60,7 @@ export default function Index({user, clientes, etiquetas, coincidencia=''}){
           )
           const clientes = await res.json()
           setClientesR(clientes)
+          
         } else {
           const res = await fetch(
             `http://localhost:8080/cliente/encontrar/coincidencia/`,
@@ -78,10 +79,14 @@ export default function Index({user, clientes, etiquetas, coincidencia=''}){
           setClientesR(resJSON)
         }
       }
+      
     
       useEffect(() => {
+        
         sessionControl()
+
         buscarCoincidencias()
+       
         
       }, [])
 

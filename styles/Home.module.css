@@ -223,7 +223,7 @@
   height: 28px;
   padding-left: 5px;
   font-size: 20px;
-  background-color: rgb(220,220,220);
+  background-color: var(--imput-buscar);
   
   border: none;
   border-left: 1px solid white;
