@@ -11,29 +11,101 @@ import { yupResolver } from '@hookform/resolvers/yup/dist/yup.js'
 import {buscarCoincidencia, validarToken} from '../api/request'
 import Router, { useRouter } from 'next/router'
 import { schemaAgregarCliente } from '../../schemas/agregarCliente'
-import { agregarClienteReq } from '../api/clientes-https'
+import { agregarClienteReq, traerEtiquetas } from '../api/clientes-https'
 
 export default function AddCliente(){
-    
-      const sessionControl = async () => {
-        const valid = await validarToken()
-        if (valid === false) {
-          swal({
-            title: 'Inicia sesion.',
-            text:
-              'Debes iniciar sesión para acceder.',
-            icon: 'info',
-            button: 'Ok',
-            timer: '3000'
-          })
-          Router.push('/')
-        }
-      }
+  
+  const {
+    register,
+    handleSubmit,
+    formState: { errors }
+  } = useForm({
+    resolver: yupResolver(schemaAgregarCliente)
+  })
 
-    useEffect(() => {
-        sessionControl()
+
+  const sessionControl = async () => {
+    const valid = await validarToken()
+    if (valid === false) {
+      swal({
+        title: 'Inicia sesion.',
+        text:
+          'Debes iniciar sesión para acceder.',
+        icon: 'info',
+        button: 'Ok',
+        timer: '3000'
+      })
+      Router.push('/')
+    }
+  }
+
+  const onSubmit = async data => {    
+    
+    const res = await fetch(`http://localhost:8080/cliente`, {
+      method: 'POST',
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        nombres: data.nombres,
+        paterno: data.paterno, 
+        materno: data.materno,
+        razonSocial: data.razonSocial,
+        direccion: data.direccion,
+        ciudad: data.ciudad,
+        cp: data.cp,
+        rfc: data.rfc,
+        email: data.email,
+        telefono: data.telefono,
+        movil: data.movil,
         
-      }, [])
+        
+      })
+    })
+    const resJSON = await res.json()
+    console.log(resJSON)
+    if (res.status !== 200) {
+      try {
+        let arrayErrors = resJSON.errors;
+        arrayErrors.forEach(e => {
+          swal({
+            title: 'Error al agregar cliente',
+            text: e.msg,
+            icon: 'error',
+            button: 'Ok'
+          })
+        })
+      } catch (error) {
+        swal({
+          title: 'Algo salio mal...',
+          text: resJSON.msg,
+          icon: 'error',
+          button: 'Ok'
+        })
+        console.log(error)
+        console.log(data.email)
+      }
+    } else {
+      if (res.status === 200) {
+        
+        swal({
+          title:'Cliente agregado exitosamente',
+          text: resJSON.msj,
+          icon: 'success',
+          button: 'Ok'
+        })
+        console.log(data.email)
+        console.log(cliente._id)
+      }
+      
+    }
+  }
+
+  useEffect(() => {
+      sessionControl()
+      
+    }, [])
 
     return(
     
@@ -53,11 +125,25 @@ export default function AddCliente(){
 
                 <center>
 
-                
-                <form>
-                <input className={styles.input} placeholder="Nombre(s)" />
-                <button type='submit' className={styles.guardar}> Subir </button>
-                <Link href="/cliente/"><button className={styles.redBtn}>Cancelar</button></Link>
+                <form onSubmit={handleSubmit(onSubmit)} className={styles.clienteAgregar}>
+                   
+                        <input required className={styles.input} placeholder="Nombre(s)" {...register('nombres')}></input>
+                        
+                        <input className={styles.input} placeholder="Paterno" {...register('paterno')}></input>
+                        
+                        <input className={styles.input} placeholder="Materno" {...register('materno')}></input>
+                        <p></p>
+                        <input className={styles.input} placeholder="Empresa" {...register('empresa')}></input>
+                        <input className={styles.input} placeholder="Dirección" {...register('direccion')}></input>
+                        <input className={styles.input} placeholder="Ciudad" {...register('ciudad')}></input>
+                        <input className={styles.input} placeholder="C.P." {...register('cp')}></input>
+                        <input className={styles.input} placeholder="RFC" {...register('rfc')}></input>
+                        <input required className={styles.input} placeholder="Email" {...register('email')}></input>
+                        <input className={styles.input} placeholder="Teléfono" {...register('telefono')}></input>
+                        <input className={styles.input} placeholder="Cel." {...register('movil')}></input>
+                        <p className={styles.errors}>{errors.nombres?.message} {errors.email?.message}</p><br></br>
+                    <button className={styles.guardar} type='submit'>Guardar</button>
+                    <Link href='../cliente'><button className={styles.cancelar}>Cancelar</button></Link>
                 </form>
                 
 
@@ -73,28 +159,10 @@ export default function AddCliente(){
     </>
     )
 }
-/*
 
-                <form onSubmit={(console.log('Empecemos de nuevo'))} className={styles.clienteAgregar}>
-                   
-                        <p>Nombre</p>
-                        <input className={styles.input} placeholder="Nombre(s)" ></input>
-                        
-                        <input className={styles.input} placeholder="Paterno" ></input>
-                        
-                        <input className={styles.input} placeholder="Materno"></input>
-                        <p>Datos de Contacto</p>
-                        <input className={styles.input} placeholder="Empresa"></input>
-                        <input className={styles.input} placeholder="Dirección"></input>
-                        <input className={styles.input} placeholder="Ciudad" ></input>
-                        <input className={styles.input} placeholder="C.P." ></input>
-                        <input className={styles.input} placeholder="RFC" ></input>
-                        <input className={styles.input} placeholder="Email" ></input>
-                        <input className={styles.input} placeholder="Teléfono"></input>
-                        <input className={styles.input} placeholder="Cel."></input>
-                        <p className={styles.errors}></p><br></br>
-                    <button className={styles.guardar} type='submit'>Guardar</button>
-                    
-                </form>
-
-*/
+export async function getServerSideProps () {
+  const { arrayEtiquetas } = await traerEtiquetas()
+  return {
+    props: { arrayEtiquetas, notFound: false }
+  }
+}

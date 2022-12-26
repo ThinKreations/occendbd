@@ -62,7 +62,7 @@ export default function IniciarSesion () {
       
         <Head>
         <title>Log In</title>
-        <meta name="Administración." content="JN, Occend" />
+        <meta name="Administración." content="Occend" />
         
         </Head>
 

@@ -353,10 +353,10 @@
 .clienteAgregar{
   width: 75%;
   margin-top: 20px;
-  margin-bottom: 15px;
-  padding: 10px;
+
+  
   display: inline-flexbox;
-  background-color: var(--imput-buscar);
+  
   border-radius: 10px;
   
 }
@@ -364,19 +364,37 @@
 .input{
   width: 20%;
   font-family: Work Sans;
-  font-size: 16px;
+  font-size: 20px;
   border: none;
   outline: none;
   padding: 5px;
-  border-radius: 5px;
+  border-radius: 10px;
   margin: 5px;
-  margin-top: 20px;
+  margin-top: 40px;
   margin-bottom: 20px;
+  
+  transition: 0.3s;
+  border: 1px solid rgb(100,100,10);
+}
+
+.input:focus{
+  border: 1px solid rgb(50,50,50);
+  
+}
+
+.input::spelling-error{
+  border: 1px solid red;
+}
+
+.input:hover{
+  border: 1px solid rgb(25,25,25);
+
 }
 
 .input::placeholder{
-  color:rgb(0, 0, 0);
+  color:rgb(50,50,50);
   transition: 0.3s ease-in-out;
+  
 }
 .input:focus::placeholder{
   transform: translate(-250px,0px);
@@ -384,21 +402,34 @@
 
 .guardar{
   background-color: green;
-  padding: 5px;
-  font-size: 16px;
-  font-family: Work Sans;
+  margin-bottom: 20px;
   border: none;
-  border-radius: 5px;
-  margin: 5px;
-  margin-top: 0px;
-  transition: 0.3s ease-in-out;
-  width: 50vw;
   color: white;
+  font-family: Work Sans;
+  font-size: 15px;
+  width: max-content;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 3px rgb(180,180,180);
+  transition: 0.3s ease-in-out;
+  margin: 5px;
 }
 
-.guardar:hover{
-  transform: scale(1.01, 1.05);
+.cancelar{
+  background-color: red;
+  margin-bottom: 20px;
+  border: none;
+  color: white;
+  font-family: Work Sans;
+  font-size: 15px;
+  width: max-content;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 3px rgb(180,180,180);
+  transition: 0.3s ease-in-out;
+  margin: 5px;
 }
+
 
 .redBtn{
   background-color: red;
@@ -429,6 +460,8 @@
 .errors{
   color:red;
 }
+
+
 
 @media screen and (max-width: 800px) {
   .loginForm{

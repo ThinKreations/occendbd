@@ -16,7 +16,7 @@ export default function Index({user, clientes, etiquetas, coincidencia=''}){
 
     const [userR, setUserR] = useState(user);
     const [clientesR, setClientesR] = useState(clientes);
-    const [termino, setTermino] = useState(router.query.coincidencia)
+    const [termino, setTermino] = useState(router.query.coincidencia);
 
     const sessionControl = async () => {
         const valid = await validarToken()
@@ -33,7 +33,21 @@ export default function Index({user, clientes, etiquetas, coincidencia=''}){
         }
       }
    
-    
+      const delAll = async ()=>{
+        
+          const res = await fetch(`http://localhost:8080/cliente/delete/cliente`,{
+              method: 'DELETE',
+              mode: 'cors',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              
+            }
+          )
+          
+          const resJSON = await res.json()
+          Router.reload()
+      }
      
     
       const cerrarSesion = async () => {
@@ -90,7 +104,6 @@ export default function Index({user, clientes, etiquetas, coincidencia=''}){
         
       }, [])
 
-
     return(
         <>
         <MainHead tituloPestana="Menú Principal"/>
@@ -110,7 +123,8 @@ export default function Index({user, clientes, etiquetas, coincidencia=''}){
                 <button className={styles.addCliente} onClick={()=>Router.push('./cliente/agregar')}>Agregar Cliente</button>
                 <button className={styles.btnHistorial} onClick={()=>Router.push('./cliente/historial')}>Historial</button>
                 <button className={styles.btnCerrar} onClick={cerrarSesion}>Cerrar Sesión</button>
-                {}
+                <button className={styles.btnCerrar} onClick={delAll}>Borrar Todo</button>
+                
                 <p></p>
                 
             <div className={styles.cont}>
@@ -124,7 +138,7 @@ export default function Index({user, clientes, etiquetas, coincidencia=''}){
                     <div className={styles.clienteC}>                
                             
                         {clientesR.clientes.map(c=>{
-                            
+                              
                               return(
                                 
                                 <div className={styles.datoCliente} key={c._id}>
