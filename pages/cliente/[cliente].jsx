@@ -4,14 +4,41 @@ import styles from '../../styles/Home.module.css'
 import Header from '../../components/Header'
 import MainHead from '../../components/MainHead'
 import Link from 'next/link'
+import { useState, useEffect } from 'react'
+import {validarToken} from '../api/request'
 
+import { Router } from 'next/router'
 
-export default function Cliente(){
+export default function Cliente({ cliente }){
+    const [idn, setIdn] = useState('')
     
+    const sessionControl = async () => {
+        const valid = await validarToken()
+        if (valid === false) {
+          swal({
+            title: 'Inicia sesion.',
+            text:
+              'Debes iniciar sesión para acceder.',
+            icon: 'info',
+            button: 'Ok',
+            timer: '3000'
+          })
+          Router.push('/')
+        }
+      }
+    
+      
+    
+      useEffect(() => {
+          sessionControl()
+          
+        }, [])
+     
+
     return(
     
     <>
-        <MainHead tituloPestana="Agregar"/>
+        <MainHead tituloPestana='Aquí vamos de nuevo'/>
         <div className={styles.container}>
 
             
@@ -50,7 +77,7 @@ export default function Cliente(){
 
                     <button className={styles.guardar}>Editar</button>
 
-                    <button className={styles.redBtn}>Eliminar</button>
+                  
                     
                 </form>
 
@@ -67,3 +94,19 @@ export default function Cliente(){
     </>
     )
 }
+
+export async function getServerSideProps ({ params }) {
+
+    const res = await fetch(`http://localhost:8080/cliente/${params.cliente}`)
+    
+    
+
+    const clientes = await res.json()
+    console.log(res)
+    console.log(params)
+
+    return {
+      props: { cliente: clientes, notFound: false }
+    }
+  }
+  

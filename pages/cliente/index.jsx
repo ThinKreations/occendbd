@@ -91,14 +91,16 @@ export default function Index({user, clientes, etiquetas, coincidencia=''}){
           )
           const resJSON = await res.json()
           setClientesR(resJSON)
+          console.log(resJSON)
         }
       }
+
+  
       
     
       useEffect(() => {
         
         sessionControl()
-
         buscarCoincidencias()
        
         
@@ -106,22 +108,25 @@ export default function Index({user, clientes, etiquetas, coincidencia=''}){
 
     return(
         <>
-        <MainHead tituloPestana="Menú Principal"/>
+        <MainHead tituloPestana='Inicio'/>
         <div className={styles.container}>
 
-            <MainHead tituloPestana="Menú Principal"/>
+            
             <Header/>
             
             <center>
-            <form className={styles.buscarForm}>
-            <input className={styles.barraBusqueda} placeholder="Nombre, empresa, correo, etc."></input>
-            <button className={styles.btnBuscar}><font face="Work Sans">BUSCAR</font></button>
+            <form onSubmit={buscarCoincidencias} className={styles.buscarForm}>
+            <input className={styles.barraBusqueda} placeholder="Nombre, empresa, correo, etc."
+             onChange={(event, termino) => setTermino(termino)}
+             onKeyPress={c => setTermino(c.target.value)}
+            ></input>
+            <button className={styles.btnBuscar} type="submit"><font face="Work Sans">BUSCAR</font></button>
             
             </form>
             </center>
             
                 <button className={styles.addCliente} onClick={()=>Router.push('./cliente/agregar')}>Agregar Cliente</button>
-                <button className={styles.btnHistorial} onClick={()=>Router.push('./cliente/historial')}>Historial</button>
+                <button className={styles.btnHistorial} onClick={()=>Router.push('./historial')}>Historial</button>
                 <button className={styles.btnCerrar} onClick={cerrarSesion}>Cerrar Sesión</button>
                 <button className={styles.btnCerrar} onClick={delAll}>Borrar Todo</button>
                 
@@ -139,18 +144,34 @@ export default function Index({user, clientes, etiquetas, coincidencia=''}){
                             
                         {clientesR.clientes.map(c=>{
                               
+                              const borrar = async () =>{
+                                const res = await fetch(`http://localhost:8080/cliente/delete/cliente/${c._id}`,{
+                                    method: 'DELETE',
+                                    mode: 'cors',
+                                    headers: {
+                                      'Content-Type': 'application/json'
+                                    },
+                                    
+                                  }
+                                )
+                                Router.reload()
+                                
+                              }
+                              /*
+                              const traer = async () =>{
+                                localStorage.setItem('clienteSelec', c._id)
+                                Router.push(`/cliente/${c._id}`)
+                              }*/
+
                               return(
+                                <div key={c._id}>
+                                <div  className={styles.datoCliente}>
                                 
-                                <div className={styles.datoCliente} key={c._id}>
-                                {c.nombres}
-                                {c.paterno}
-                                {c.materno}<b>, </b> 
-                                {c.razonSocial}<b>, </b>
+                                <b>{c.nombres} {c.paterno} {c.materno}, {c.razonSocial}, {c.email}, {c.telefono} | {c._id}</b>
                                 
-                                {c.email}<b>, </b>
-                                {c.telefono}
                                 </div>
-                                
+                                <button className={styles.btnEditarC}>Editar</button><button className={styles.btnBorrarC} onClick={borrar}>Borrar</button>
+                                </div>
                               )
                             
                                 

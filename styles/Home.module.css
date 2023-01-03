@@ -337,17 +337,21 @@
 .datoCliente{
   background-color: white;
   border-radius: 10px;
-  box-shadow: 2px 2px 3px rgb(200,200,200);
+  border: 1px solid var(--imput-buscar);
   word-wrap: break-word;
   padding: 6px;
   margin-top: 6px;
   margin-bottom: 6px;
-  
+  padding: 10px;
+  font-family: Work Sans;
+  font-size: 15px;
+  width: 98%;
+  text-align: left;
+  box-shadow: 2px 2px 2px rgb(200,200,200);
 }
 
 .datoCliente:hover{
-  background-color: var(--imput-buscar);
-  box-shadow: 2px 2px 3px rgb(200,200,200);
+  border: 1px solid rgb(125,125,125);
 }
 
 .clienteAgregar{
@@ -362,7 +366,7 @@
 }
 
 .input{
-  width: 20%;
+  width: 15%;
   font-family: Work Sans;
   font-size: 20px;
   border: none;
@@ -370,11 +374,11 @@
   padding: 5px;
   border-radius: 10px;
   margin: 5px;
-  margin-top: 40px;
-  margin-bottom: 20px;
+  margin-top: 20px;
+  margin-bottom: 10px;
   
   transition: 0.3s;
-  border: 1px solid rgb(100,100,10);
+  border: 1px solid rgb(200,200,200);
 }
 
 .input:focus{
@@ -400,6 +404,50 @@
   transform: translate(-250px,0px);
 }
 
+/*com*/
+
+.inputComentario{
+  width: 75%;
+  font-family: Work Sans;
+  font-size: 20px;
+  border: none;
+  outline: none;
+  padding: 5px;
+  border-radius: 10px;
+  margin: 5px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  
+  transition: 0.3s;
+  border: 1px solid rgb(200,200,200);
+}
+
+.inputComentario:focus{
+  border: 1px solid rgb(50,50,50);
+  
+}
+
+.inputComentario::spelling-error{
+  border: 1px solid red;
+}
+
+.inputComentario:hover{
+  border: 1px solid rgb(25,25,25);
+
+}
+
+.inputComentario::placeholder{
+  color:rgb(50,50,50);
+  transition: 0.3s ease-in-out;
+  
+}
+.inputComentario:focus::placeholder{
+  transform: translate(-250px,0px);
+}
+
+
+/**/
+
 .guardar{
   background-color: green;
   margin-bottom: 20px;
@@ -407,7 +455,7 @@
   color: white;
   font-family: Work Sans;
   font-size: 15px;
-  width: max-content;
+  width: 200px;
   padding: 5px;
   border-radius: 5px;
   box-shadow: 2px 2px 3px rgb(180,180,180);
@@ -422,7 +470,7 @@
   color: white;
   font-family: Work Sans;
   font-size: 15px;
-  width: max-content;
+  width: 200px;
   padding: 5px;
   border-radius: 5px;
   box-shadow: 2px 2px 3px rgb(180,180,180);
@@ -448,6 +496,23 @@
   color: white;
 }
 
+.btnInfo{
+  background-color: white;
+  padding: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-size: 16px;
+  font-family: Work Sans;
+  border: none;
+  border-radius: 5px;
+  margin: 5px;
+  margin-top: 0px;
+  transition: 0.3s ease-in-out;
+  width: max-content;
+
+  color: black;
+}
+
 .redBtn:hover{
   transform: scale(1.03, 1.05);
 }
@@ -461,7 +526,35 @@
   color:red;
 }
 
+.btnEditarC{
+  background-color: green;
+  
+  border: none;
+  color: white;
+  font-family: Work Sans;
+  font-size: 15px;
+  width: max-content;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 3px rgb(180,180,180);
+  transition: 0.3s ease-in-out;
+  margin-right: 5px;
+}
 
+.btnBorrarC{
+  background-color: red;
+  
+  border: none;
+  color: white;
+  font-family: Work Sans;
+  font-size: 15px;
+  width: max-content;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 3px rgb(180,180,180);
+  transition: 0.3s ease-in-out;
+  margin-right: 5px;
+}
 
 @media screen and (max-width: 800px) {
   .loginForm{
@@ -494,7 +587,7 @@
     padding: 5px;
     margin-right: 1px;
     word-wrap: normal;
-    
+    font-size: 12px;
   }
   .headTabla{
     
@@ -521,4 +614,36 @@
     width: 30%;
       
   }
+
+  .btnEditarC{
+    background-color: green;
+    
+    border: none;
+    color: white;
+    font-family: Work Sans;
+    font-size: 8px;
+    width: max-content;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 3px rgb(180,180,180);
+    transition: 0.3s ease-in-out;
+    margin-right: 5px;
+  }
+  
+  .btnBorrarC{
+    background-color: red;
+    
+    border: none;
+    color: white;
+    font-family: Work Sans;
+    font-size: 10px;
+    width: max-content;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 3px rgb(180,180,180);
+    transition: 0.3s ease-in-out;
+    margin-right: 5px;
+  }
+
+
 }
