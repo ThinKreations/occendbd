@@ -162,7 +162,7 @@ export default function AddCliente(){
                         <input required className={styles.input} placeholder="Teléfono" {...register('telefono')} onChange={c => setTel(c.target.value)}></input>
                         <input required className={styles.input} placeholder="Cel." {...register('movil')} onChange={c => setCel(c.target.value)}></input><br/>
                         <input className={styles.inputComentario} placeholder="Comentarios" {...register('comentarios')} onChange={c => setComentario(c.target.value)}/>
-                        <p className={styles.errors}>{errors.nombres?.message} {errors.email?.message} En caso de no contar con un dato, escibir "N/A"</p><br></br>
+                        <p className={styles.errors}>{errors.nombres?.message} {errors.email?.message}{`En caso de no contar con un dato, escibir "N/A"`}</p><br></br>
                     <button className={styles.guardar} type='submit'>Guardar</button>
                     <Link href='../cliente'><button className={styles.cancelar}>Cancelar</button></Link>
                 </form>
